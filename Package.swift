@@ -5,17 +5,21 @@ import PackageDescription
 
 let package = Package(
     name: "ProfileFeature",
+    platforms: [
+        .iOS(.v17), .macOS(.v14)
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
+     
         .library(
             name: "ProfileFeature",
             targets: ["ProfileFeature"]),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
+      
         .target(
-            name: "ProfileFeature"),
+            name: "ProfileFeature",
+            path: "Sources",
+            resources: [.process("Resources")]),
         .testTarget(
             name: "ProfileFeatureTests",
             dependencies: ["ProfileFeature"]),
